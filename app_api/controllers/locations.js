@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
-//Location = mongoose.model('Location');
+var Loc = mongoose.model('Location');
 
 module.exports.locationsList = function (req, res) {
-    res.send({message: 'Hello from ctrl'})
+    Loc.find({}, (err, docs) => {
+        console.log(docs);
+        res.status(200);
+        res.json(docs);
+    });
 };
